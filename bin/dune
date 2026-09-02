@@ -1,0 +1,4 @@
+(executable
+ (public_name linkchecker)
+ (name main)
+ (libraries re cohttp-lwt-unix lwt))

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rf ./linkchecker
+rm -rf _build/
+dune build
+cp _build/default/bin/main.exe ./linkchecker
