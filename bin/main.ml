@@ -37,7 +37,8 @@ let normalize_url url = if String.starts_with ~prefix:"/" url then !base ^ url e
 open Lwt.Infix
 
 let rec check_url ?(max_redirects = 5) uri =
-  if max_redirects = 0 then Lwt.return (Error "too many redirects")
+  if (String.starts_with ~prefix:"#" uri) then Lwt.return (Ok ())
+  else if max_redirects = 0 then Lwt.return (Error "too many redirects")
   else
     Lwt.catch
       (fun () ->
